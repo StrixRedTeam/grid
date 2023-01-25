@@ -54,9 +54,9 @@ class TranslatableColumnRenderer implements ColumnRendererInterface
         $domain = $column->getDomain();
         $translatedParameters = [];
         foreach ($parameters as $key => $parameter) {
-            $translatedParameters[$key] = $this->translator->trans($parameter, [], $domain);
+            $translatedParameters[$key] = $this->translator->trans((string) $parameter, [], $domain);
         }
 
-        return $this->translator->trans($row[$id], $translatedParameters, $domain);
+        return $this->translator->trans((string) $row[$id], $translatedParameters, $domain);
     }
 }
